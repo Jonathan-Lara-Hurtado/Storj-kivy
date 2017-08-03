@@ -36,8 +36,10 @@ version = 1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = kivy,hostpython2,storj,plyer,request,simplejson
+requirements = pyopenssl,kivy,hostpython2,storj,plyer,request,simplejson,click,requests,ecdsa,python2,ws4py,websocket-client,base58,strict_rfc3339,pycrypto,micropayment-core,pycoin,steenzout.object
 
+
+#pyopenssl,pyOpenSSL
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
 # requirements.source.kivy = ../../kivy
@@ -183,7 +185,7 @@ android.ndk = 9c
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86
-android.arch = armeabi-v7a
+#android.arch = armeabi-v7a
 
 #
 # Python for android (p4a) specific
