@@ -1,0 +1,1 @@
+/home/jonathan/Documentos/kivystorj/.buildozer/android/platform/build/build/other_builds/python2-openssl/armeabi-v7a/python2/Modules/_ctypes/libffi/src/arm/ffitarget.h

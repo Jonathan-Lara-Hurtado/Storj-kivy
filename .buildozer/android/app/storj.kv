@@ -1,0 +1,241 @@
+<MenuPrincipal>:
+    canvas:
+        Color:
+            rgb:1,1,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    Image:
+        source:'./Imagenes/storj.jpg'
+        size_hint:(.25,.25)
+        pos_hint:{"center_x":.5,"center_y":.75}
+
+
+    Label:
+
+
+        text_size: cm(6), cm(4)
+#        size_hint:(.20,.10)
+        pos_hint:{"center_x":.55,"center_y":.49}
+        text:"¿ya tienes una cuenta?"
+        color: .8,.9,0,1
+
+
+
+    Button:
+        id:registrarse
+        text:"REGISTRARSE"
+        font_size:"15"
+        padding_x:"float"
+#        padding_x:"relative"
+#        padding_y:"relative"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.5,"center_y":.5}
+        background_normal:'./Imagenes/normalcon.png'
+        background_down:'./Imagenes/normal.png'
+        border:30,30,30,30
+        on_press:
+            root.manager.transition.duration = 0
+            root.manager.current = 'menu_registro'
+#            root.probar()
+
+    Button:
+        text:"INGRESAR"
+        font_size:"15"
+#        padding_x:"relative"
+#        padding_y:"relative"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.5,"center_y":.25}
+        background_normal:'./Imagenes/azulcon.png'
+        background_down:'./Imagenes/azul.png'
+        border:30,30,30,30
+        on_press:root.manager.current = 'menu_ingresar'
+
+
+
+
+<MenuRegistro>:
+    canvas:
+        Color:
+            rgb:1,1,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+    Image:
+        source:'./Imagenes/storj.jpg'
+        size_hint:(.25,.25)
+        pos_hint:{"center_x":.5,"center_y":.85}
+
+    Button:
+        id : btnregistrarse
+        text:"Registrarse"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.5,"center_y":.15}
+        border:30,30,30,30
+        background_normal:'./Imagenes/normalcon.png'
+        background_down:'./Imagenes/normal.png'
+        on_press:
+            root.registro()
+
+
+    TextInput:
+        id : recontra
+        hint_text:"Repetir Contraseña"
+        pos_hint:{"center_x":.5,"center_y":.40}
+        size_hint:(.30,.10)
+        border:30,30,30,30
+        background_normal:'./Imagenes/normal.png'
+        background_down:'./Imagenes/normal.png'
+        background_active:'./Imagenes/normal.png'
+        multiline: False
+        padding_x:20,20
+        padding_y:20,1
+        password:True
+
+
+    TextInput:
+        id : contra
+        hint_text:"Contraseña"
+        pos_hint:{"center_x":.5,"center_y":.525}
+        size_hint:(.30,.10)
+        border:30,30,30,30
+        background_normal:'./Imagenes/normal.png'
+        background_down:'./Imagenes/normal.png'
+        background_active:'./Imagenes/normal.png'
+        multiline: False
+        padding_x:20,20
+        padding_y:20,1
+        password:True
+#        delete_selection_from_undo:False
+
+
+    TextInput:
+        id: correo
+        hint_text:"Correo electronico"
+        pos_hint:{"center_x":.5,"center_y":.65}
+        size_hint:(.30,.10)
+        border:30,30,30,30
+        background_normal:'./Imagenes/normal.png'
+        background_down:'./Imagenes/normal.png'
+        background_active:'./Imagenes/normal.png'
+        multiline: False
+        padding_x:20,20
+        padding_y:20,1
+
+    Label:
+        id:mensaje_registro
+        text_size: cm(5), cm(5)
+#        size_hint:(.20,.10)
+        pos_hint:{"center_x":.52,"center_y":.39}
+#        text:"Se a creado con exito revisa tu correo para confirmar tu cuenta"
+        color: .8,.9,0,1
+
+
+
+
+    Button:
+        text:"Atras"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.11,"center_y":.06}
+        background_normal:'./Imagenes/normalcon.png'
+        background_down:'./Imagenes/normal.png'
+        border:30,30,30,30
+        on_press:root.manager.current = 'menu_principal'
+
+
+
+
+<MenuIngresar>:
+    canvas:
+        Color:
+            rgb:1,1,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
+
+    Image:
+        source:'./Imagenes/storj.jpg'
+        size_hint:(.25,.25)
+        pos_hint:{"center_x":.5,"center_y":.75}
+
+    Button:
+        text:"Atras"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.11,"center_y":.06}
+        background_normal:'./Imagenes/azulcon.png'
+        background_down:'./Imagenes/azul.png'
+        border:30,30,30,30
+        on_press:root.manager.current = 'menu_principal'
+
+    Button:
+        id : btnIngresar
+        text:"Ingresar"
+        size_hint:(.20,.10)
+        pos_hint:{"center_x":.5,"center_y":.25}
+        border:30,30,30,30
+        background_normal:'./Imagenes/azulcon.png'
+        background_down:'./Imagenes/azul.png'
+
+
+    TextInput:
+        hint_text:"Correo electronico"
+        pos_hint:{"center_x":.5,"center_y":.55}
+        size_hint:(.30,.10)
+        border:30,30,30,30
+        background_normal:'./Imagenes/azul.png'
+        background_down:'./Imagenes/azul.png'
+        background_active:'./Imagenes/azul.png'
+        multiline: False
+        padding_x:20,20
+        padding_y:20,1
+        password:False
+
+    TextInput:
+        hint_text:"Contraseña"
+        pos_hint:{"center_x":.5,"center_y":.42}
+        size_hint:(.30,.10)
+        border:30,30,30,30
+        background_normal:'./Imagenes/azul.png'
+        background_down:'./Imagenes/azul.png'
+        background_active:'./Imagenes/azul.png'
+        multiline: False
+        padding_x:20,20
+        padding_y:20,1
+        password:True
+
+
+
+
+
+
+
+
+<Manager>:
+    id: screen_manager
+    menuprincipal:menuprincipal
+    menuregistro:menuregistro
+    menuingresar:menuingresar
+
+
+
+    MenuPrincipal:
+        id: menuprincipal
+        name:'menu_principal'
+        manager:screen_manager
+
+
+    MenuRegistro:
+        id: menuregistro
+        name:'menu_registro'
+        manager:screen_manager
+
+
+    MenuIngresar:
+        id: menuingresar
+        name:'menu_ingresar'
+        manager:screen_manager
+
+    Menufinal:
+        id:menufinal
+        name:'menu_final'
+        manager:screen_manager
