@@ -12,7 +12,7 @@ from kivy.uix.widget import Widget
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.clock import Clock
-
+from utilidades.cuenta_manager import AccountManager
 
 #posibles librerias para ver si funciona
 import storj
@@ -23,11 +23,25 @@ class MenuPrincipal(Screen):
 
 
 
+
 class MenuRegistro(Screen):
     pass
 
     def my_callback(self,dt):
         self.manager.current = 'menu_ingresar'
+        self.limpiarpantalla()
+
+    def limpiarpantalla(self):
+        print "limpie pantalla"
+        self.correo = self.ids['correo']
+        self.pass1 = self.ids['contra']
+        self.repass1 = self.ids['recontra']
+        self.mensaje = self.ids['mensaje_registro']
+        self.mensaje.text=""
+        self.correo.text=""
+        self.pass1.text=""
+        self.repass1.text=""
+
 
     def registro(self):
         self.correo = self.ids['correo']
@@ -58,10 +72,51 @@ class MenuRegistro(Screen):
         if success == True:
             event = Clock.schedule_once(self.my_callback,7)
 
+
+
 class MenuIngresar(Screen):
     pass
 
-class Menufinal(Screen):
+    def my_callback(self,dt):
+        self.manager.current = 'menu_final'
+        self.limpiarpantalla()
+
+    def limpiarpantalla(self):
+        print "limpie pantalla"
+        self.correo = self.ids['correo']
+        self.pass1 = self.ids['contra']
+        self.mensaje = self.ids['mensaje_registro']
+        self.mensaje.text=""
+        self.correo.text=""
+        self.pass1.text=""
+
+    def Ingresar(self):
+        self.correo = self.ids['correo']
+        self.email = self.correo.text
+        self.pass1 = self.ids['contra']
+        self.password = self.pass1.text
+        self.mensaje = self.ids['mensaje_registro']
+        self.storj_client = storj.Client(email= self.email, password=self.password)
+        success = False
+
+        try:
+            self.storj_client.key_list()
+            success = True
+        except storj.exception.StorjBridgeApiError as gato:
+            j = json.loads(str(gato))
+#            self.__logger.debug(j)
+            if j[0]['error']=='Invalid email or password':
+                self.mensaje.text= "Invalido correo o contrasena Porfavor de Verificarlos"
+            else:
+                self.mensaje.text=str(gato)
+        if success == True:
+            print "guardando credinciales"
+            self.account_manager = AccountManager(self.email, self.password)
+            self.account_manager.save_account_credentials()
+            self.mensaje.text = "Ingreso Exitoso"
+            event = Clock.schedule_once(self.my_callback,7)
+
+class MenuFinal(Screen):
     pass
 
 

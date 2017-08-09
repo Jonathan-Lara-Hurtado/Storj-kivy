@@ -18,7 +18,7 @@
 #        size_hint:(.20,.10)
         pos_hint:{"center_x":.55,"center_y":.49}
         text:"¿ya tienes una cuenta?"
-        color: .8,.9,0,1
+        color: .8,0,.326,1
 
 
 
@@ -49,8 +49,9 @@
         background_normal:'./Imagenes/azulcon.png'
         background_down:'./Imagenes/azul.png'
         border:30,30,30,30
-        on_press:root.manager.current = 'menu_ingresar'
-
+        on_press:
+            root.manager.transition.duration = 0
+            root.manager.current = 'menu_ingresar'
 
 
 
@@ -128,7 +129,7 @@
 #        size_hint:(.20,.10)
         pos_hint:{"center_x":.52,"center_y":.39}
 #        text:"Se a creado con exito revisa tu correo para confirmar tu cuenta"
-        color: .8,.9,0,1
+        color: .76,0,.156,1
 
 
 
@@ -140,7 +141,9 @@
         background_normal:'./Imagenes/normalcon.png'
         background_down:'./Imagenes/normal.png'
         border:30,30,30,30
-        on_press:root.manager.current = 'menu_principal'
+        on_press:
+            root.manager.current = 'menu_principal'
+            root.limpiarpantalla()
 
 
 
@@ -165,19 +168,23 @@
         background_normal:'./Imagenes/azulcon.png'
         background_down:'./Imagenes/azul.png'
         border:30,30,30,30
-        on_press:root.manager.current = 'menu_principal'
-
+        on_press:
+            root.manager.current = 'menu_principal'
+            root.limpiarpantalla()
     Button:
         id : btnIngresar
         text:"Ingresar"
         size_hint:(.20,.10)
-        pos_hint:{"center_x":.5,"center_y":.25}
+        pos_hint:{"center_x":.5,"center_y":.30}
         border:30,30,30,30
         background_normal:'./Imagenes/azulcon.png'
         background_down:'./Imagenes/azul.png'
+        on_press:
+            root.Ingresar()
 
 
     TextInput:
+        id : correo
         hint_text:"Correo electronico"
         pos_hint:{"center_x":.5,"center_y":.55}
         size_hint:(.30,.10)
@@ -191,6 +198,7 @@
         password:False
 
     TextInput:
+        id: contra
         hint_text:"Contraseña"
         pos_hint:{"center_x":.5,"center_y":.42}
         size_hint:(.30,.10)
@@ -204,8 +212,22 @@
         password:True
 
 
+    Label:
+        id:mensaje_registro
+        text_size: cm(5), cm(5)
+#        size_hint:(.20,.10)
+        pos_hint:{"center_x":.53,"center_y":.28}
+#        text:"Se a creado con exito revisa tu correo para confirmar tu cuenta"
+        color: .76,0,.156,1
 
 
+<MenuFinal>:
+    canvas:
+        Color:
+            rgb:1,1,1
+        Rectangle:
+            size:self.size
+            pos:self.pos
 
 
 
@@ -235,7 +257,7 @@
         name:'menu_ingresar'
         manager:screen_manager
 
-    Menufinal:
+    MenuFinal:
         id:menufinal
         name:'menu_final'
         manager:screen_manager

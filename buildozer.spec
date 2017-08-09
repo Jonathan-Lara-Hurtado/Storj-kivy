@@ -7,7 +7,7 @@ title = Storj
 package.name = storj
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = com.storj
 
 # (str) Source code where the main.py live
 source.dir = .
@@ -28,7 +28,7 @@ source.exclude_dirs = tests, bin
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 1
+version = 2
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
@@ -36,7 +36,7 @@ version = 1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = pyopenssl,kivy,hostpython2,storj,plyer,request,simplejson,click,requests,ecdsa,python2,ws4py,websocket-client,base58,strict_rfc3339,pycrypto,micropayment-core,pycoin,steenzout.object
+requirements = pyopenssl,android,kivy,hostpython2,storj,plyer,request,simplejson,click,requests,ecdsa,python2,ws4py,websocket-client,base58,strict_rfc3339,pycrypto,micropayment-core,pycoin,steenzout.object
 
 
 #pyopenssl,pyOpenSSL
@@ -87,8 +87,9 @@ fullscreen = 0
 #android.presplash_color = #FFFFFF
 
 # (list) Permissions
-android.permissions = INTERNET,ACCESS_NETWORK_STATE,ACCESS_WIFI_STATE,ACCESS_CHECKIN_PROPERTIES,CHANGE_NETWORK_STATE,CHANGE_WIFI_MULTICAST_STATE,CHANGE_WIFI_STATE
-
+#android.permissions=INTERNET,ACCESS_WIFI_STATE,ACCESS_NETWORK_STATE,CHANGE_NETWORK_STATE,CHANGE_WIFI_MULTICAST_STATE,CHANGE_WIFI_STATE,ACCOUNT_MANAGER,BIND_CARRIER_SERVICES,BIND_CHOOSER_TARGET_SERVICE,BIND_DEVICE_ADMIN
+#android.perrmissions =
+#android.permissions =
 # (int) Android API to use
 android.api = 19
 
@@ -270,3 +271,46 @@ warn_on_root = 1
 #    Then, invoke the command line with the "demo" profile:
 #
 #buildozer --profile demo android debug
+#BIND_CARRIER_SERVICES
+#BIND_CHOOSER_TARGET_SERVICE
+#BIND_DEVICE_ADMIN
+#BROADCAST_WAP_PUSH
+#BROADCAST_STICKY
+#GET_ACCOUNTS
+
+
+[app:android.permissions]
+INTERNET
+ACCOUNT_MANAGER
+ACCESS_FINE_LOCATION
+ACCESS_NETWORK_STATE
+AUTHENTICATE_ACCOUNTS
+ACCESS_WIFI_STATE
+ACCESS_COARSE_LOCATION
+ACCESS_CHECKIN_PROPERTIES
+CHANGE_NETWORK_STATE
+CHANGE_WIFI_MULTICAST_STATE
+CHANGE_WIFI_STATE
+GET_ACCOUNTS_PRIVILEGED
+GET_ACCOUNTS
+INSTALL_SHORTCUT
+INSTANT_APP_FOREGROUND_SERVICE
+MANAGE_DOCUMENTS
+PACKAGE_USAGE_STATS
+READ_EXTERNAL_STORAGE
+REORDER_TASKS
+REQUEST_COMPANION_RUN_IN_BACKGROUND
+READ_SYNC_SETTINGS
+READ_SYNC_STATS
+SIGNAL_PERSISTENT_PROCESSES
+USE_CREDENTIALS
+WRITE_EXTERNAL_STORAGE
+WRITE_SECURE_SETTINGS
+WRITE_SYNC_SETTINGS
+WRITE_EXTERNAL_STORAGE
+
+
+[app:android.permission-group]
+NETWORK
+
+[app:com.google.android.c2dm.permission.RECEIVE]
