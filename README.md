@@ -1,3 +1,5 @@
+# Storj_kivy_GUI
+
 Es es el Readme del proyecto Storj python-kivy(buildozer).
 
 Esta aplicacion su intencion es crear un app android con kivy y python, se basa 
