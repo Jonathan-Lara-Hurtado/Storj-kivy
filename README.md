@@ -8,7 +8,3 @@ para mas informacion vaya https://github.com/lakewik/storj_gui_client
 pero acoplado para kivy.
 
 
-Actual mente solo esta creada la parte de registrarse en computadora pero al 
-generar el apk se cierra(viendo el logcat posiblemente la app no tiene acceso
-a internet)aunque ya se la dado permisos en la receta buildozer.spec y generar
-sus respectivas llaves del apk.
